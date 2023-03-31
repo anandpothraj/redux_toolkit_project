@@ -1,4 +1,4 @@
-import { createSlice } from 'redux-toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     numOfIcecreams : 10
@@ -12,10 +12,10 @@ const icecreamSlice = createSlice({
             state.numOfIcecreams--
         },
         restockIcecream : (state, action) => {
-            state.numOfIcecreams += action.payload
+            state.numOfIcecreams += parseInt(action.payload)
         }
     }
 });
 
 export default icecreamSlice.reducer;
-export const icecreamActions = icecreamSlice.actions;
+export const { orderIcecream, restockIcecream } = icecreamSlice.actions;
